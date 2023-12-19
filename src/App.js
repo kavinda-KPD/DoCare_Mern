@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { Toaster } from 'react-hot-toast';
+import Home from './pages/Home';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
 
         <Route path='/login' element={<Login />} />
         <Route path='/Register' element={<Register />} />
+        <Route path='/' element={<Home />} />
+
 
       </Routes>
 
