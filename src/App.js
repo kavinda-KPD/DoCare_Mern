@@ -6,11 +6,13 @@ import Register from './pages/Register';
 import { Toaster } from 'react-hot-toast';
 import Home from './pages/Home';
 import { useSelector } from 'react-redux';
+import ProtectedRoute from './components/ProtectedRoute';
+import PublicRoute from './components/PublicRoute';
 
 
 function App() {
 
-  const {loading} = useSelector((state) => state.alerts);
+  const { loading } = useSelector((state) => state.alerts);
 
   return (
     <BrowserRouter>
@@ -23,9 +25,9 @@ function App() {
 
       <Routes>
 
-        <Route path='/login' element={<Login />} />
-        <Route path='/Register' element={<Register />} />
-        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
+        <Route path='/Register' element={<PublicRoute><Register /></PublicRoute>} />
+        <Route path='/' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
 
 
       </Routes>
